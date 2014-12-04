@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'hirb', group: :development
+gem 'pry-debugger', group: :development
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
