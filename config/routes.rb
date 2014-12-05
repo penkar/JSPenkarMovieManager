@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/home', to: 'home#home' 
+  root :to => 'home#home'
   resources :movies do 
   end
 
