@@ -1,0 +1,5 @@
+<%= @movie.title %> was created on <%= @movie.release_year %>, and runs for a length of <%= @movie.length / 60 %> hours and <%= @movie.length % 60 %> minutes. You currently own the <%= @movie.format %> version of this film and have 
+<%= 'strong ' if (@movie.rating == 5 || @movie.rating ==1 ) %>
+<%= 'negative ' if @movie.rating < 3 %>
+<%= 'positive ' if @movie.rating > 3 %>
+<%= 'apathetic ' if @movie.rating == 3 %>feelings for the movie.
