@@ -12,6 +12,25 @@
 </head>
 <body>
 
+  <div class="container">
+    <div class="header">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="active">
+          	<%= link_to 'Collection', movies_path %>
+          </li>
+          <li role="presentation">
+          	<%= link_to 'Add', new_movie_path %>
+          </li>
+          <li role="presentation">
+          	<%= link_to 'Home', home_path %>
+          </li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">JSPenkar Movie Manager</h3>
+    </div>
+  </div> <!-- /container -->
+
 <%= yield %>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
