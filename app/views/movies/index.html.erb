@@ -16,7 +16,7 @@
 	<tr>
 		<td><%= movie.title %></td>
 		<td><%= movie.release_year %></td>
-		<td><%= movie.length %></td>
+		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
 		<td><%= movie.format %></td>
 		<td><%= movie.rating %></td>
 		<td><%= button_to 'View Movie', movie_path(movie.id), :method => :get %></td>
