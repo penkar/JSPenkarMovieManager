@@ -4,6 +4,14 @@ class MoviesController < ApplicationController
 	end
 
 	def create
+		@new_movie = Movie.new
+		@new_movie.title = params['movie']['title']
+		@new_movie.format = params['movie']['format']
+		@new_movie.length = params['movie']['length']
+		@new_movie.release_year = params['movie']['release_year']
+		@new_movie.rating = params['movie']['rating']
+		@new_movie.save
+ 		redirect_to :action => "index"
 	end
 
 	def new
