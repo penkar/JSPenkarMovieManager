@@ -28,6 +28,9 @@ class MoviesController < ApplicationController
 	end	
 
 	def destroy
+		p params
+		p 'hello'
 		Movie.find(params['id']).destroy
+		redirect_to :action => "index"
 	end	
 end
