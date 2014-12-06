@@ -8,6 +8,7 @@
 		<th class="tablehead">Length</th>
 		<th class="tablehead">Format</th>
 		<th class="tablehead">Rating</th>
+		<th class="tablehead">View</th>
 		<th class="tablehead">Edit</th>
 		<th class="tablehead">Delete</th>
 	</tr>
@@ -18,6 +19,7 @@
 		<td><%= movie.length %></td>
 		<td><%= movie.format %></td>
 		<td><%= movie.rating %></td>
+		<td><%= button_to 'View Movie', movie_path(movie.id), :method => :get %></td>
 		<td><%= button_to 'Edit Movie', edit_movie_path(movie.id), :method => :get %></td>
 		<td><%= button_to "Delete", movie_path(movie.id), :method => :delete, :confirm => "Are you sure?" %></td>
 	</tr>
