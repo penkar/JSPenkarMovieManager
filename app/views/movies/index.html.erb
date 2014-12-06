@@ -1,0 +1,23 @@
+<table>
+	<tr>
+		<th>Movie Collection:</th>
+	</tr>
+	<tr>
+		<th>Title</th>
+		<th>Release Year</th>
+		<th>Length</th>
+		<th>Format</th>
+		<th>Rating</th>
+		<th>Edit</th>
+	</tr>
+	<% @movies.each do |movie| %>
+	<tr>
+		<td><%= movie.title %></td>
+		<td><%= movie.release_year %></td>
+		<td><%= movie.length %></td>
+		<td><%= movie.format %></td>
+		<td><%= movie.rating %></td>
+		<td><%= button_to 'Edit Movie', edit_movie_path(movie.id) %></td>
+	</tr>
+	<% end %>
+</table>
