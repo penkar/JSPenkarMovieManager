@@ -1,14 +1,15 @@
-<table>
+<table class="table">
 	<tr>
 		<th>Movie Collection:</th>
 	</tr>
 	<tr>
-		<th>Title</th>
-		<th>Release Year</th>
-		<th>Length</th>
-		<th>Format</th>
-		<th>Rating</th>
-		<th>Edit</th>
+		<th class="tablehead">Title</th>
+		<th class="tablehead">Release Year</th>
+		<th class="tablehead">Length</th>
+		<th class="tablehead">Format</th>
+		<th class="tablehead">Rating</th>
+		<th class="tablehead">Edit</th>
+		<th class="tablehead">Delete</th>
 	</tr>
 	<% @movies.each do |movie| %>
 	<tr>
@@ -18,6 +19,7 @@
 		<td><%= movie.format %></td>
 		<td><%= movie.rating %></td>
 		<td><%= button_to 'Edit Movie', edit_movie_path(movie.id) %></td>
+		<td><%= button_to 'Delete Movie', :controller => :movies, :action => 'destroy', :id => movie.id, :method => :post %></td>
 	</tr>
 	<% end %>
 </table>
