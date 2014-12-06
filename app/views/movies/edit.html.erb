@@ -1,0 +1,47 @@
+<%= form_for @movie, url: {action: "update"}, html: {class: "form-horizontal"} do |f| %>
+	<div class="control-group">
+		<label class="control-label">Title:</label>
+		<div class="controls">
+			<%= f.text_field :title %>
+		</div>
+	</div>
+
+	<div class="control-group">
+	<label class="control-label">Format:</label>
+		<div class="controls">
+			<%= f.select :format, ['VHS','DVD','Instant Video'] %>
+		</div>
+	</div>
+
+	<div class="control-group">
+	<label class="control-label">Length:</label>
+		<div class="controls">
+			<%= f.text_field :length %>
+		</div>
+	</div>
+
+	<div class="control-group">
+	<label class="control-label">Release Year:</label>
+		<div class="controls">
+			<%= f.text_field :release_year %>
+		</div>
+	</div>
+
+	<div class="control-group">
+	<label class="control-label">Rating:</label>
+		<div class="controls">
+			<%= f.radio_button :rating, '1', :checked => true %> 
+  		<%= label :contactmethod_email, '1' %>
+  		<%= f.radio_button :rating, '2' %>
+  		<%= label :contactmethod_sms, '2' %>
+  		<%= f.radio_button :rating, '3' %>
+  		<%= label :contactmethod_sms, '3' %>
+  		<%= f.radio_button :rating, '4' %>
+  		<%= label :contactmethod_sms, '4' %>
+  		<%= f.radio_button :rating, '5' %>
+  		<%= label :contactmethod_sms, '5' %>
+		</div>
+	</div>
+
+  <%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>
