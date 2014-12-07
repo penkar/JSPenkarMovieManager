@@ -3,6 +3,12 @@ gem 'hirb', group: :development
 gem 'pry-debugger', group: :development
 gem 'rails_12factor', group: :production
 
+gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
+gem 'jquery-ui-form'
+gem 'jquery-tablesorter'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record

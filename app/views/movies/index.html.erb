@@ -1,4 +1,5 @@
-<table class="table table-hover table-condensed">
+<table class="table table-hover table-condensed tablesorter"  id="keywords myTable">
+	<thead>
 	<tr>
 		<th class="tablehead">Title</th>
 		<th class="tablehead">Release Year</th>
@@ -9,6 +10,8 @@
 		<th class="tablehead">Edit</th>
 		<th class="tablehead">Delete</th>
 	</tr>
+	</thead>
+	<tbody>
 	<% @movies.each do |movie| %>
 	<tr>
 		<td><%= movie.title %></td>
@@ -21,7 +24,8 @@
 		<td><%= button_to "Delete", movie_path(movie.id), :method => :delete, :confirm => "Are you sure?" %></td>
 	</tr>
 	<% end %>
+	</tbody>
 </table>
 
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+
+<script src="movieindex.js"></script>
