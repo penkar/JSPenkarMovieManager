@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  use_doorkeeper
   get '/home', to: 'home#home' 
   
   root :to => 'home#home'
