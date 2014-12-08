@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  use_doorkeeper
+  # use_doorkeeper
   get '/home', to: 'home#home' 
   
   root :to => 'home#home'
   resources :users, only: [:index] do     
-    resources :movies do 
-    end
+  end
+  resources :movies do 
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

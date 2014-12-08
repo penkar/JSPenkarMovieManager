@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 	def index
 		p params
-		@movies = User.find(params['user_id']).movies
+		@movies = Movie.all
 
 	end
 
