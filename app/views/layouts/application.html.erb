@@ -17,14 +17,26 @@
     <div class="header">
       <nav>
         <ul class="nav nav-pills pull-right">
-          <li role="presentation" class="active">
-          	<%= link_to 'Collection', movies_path %>
+          <% if current_user %>
+            <li role="presentation" class="active">
+              <%= link_to 'Your Collection', movies_path %>
+            </li>        
+          <% end %>
+          <li role="presentation">
+            <%= link_to 'All Collections', movies_public_path %>
           </li>
           <li role="presentation">
-          	<%= link_to 'Add', new_movie_path %>
+            <%= link_to 'Add', new_movie_path %>
           </li>
           <li role="presentation">
-          	<%= link_to 'Home', home_path %>
+            <%= link_to 'Splash', home_path %>
+          </li>
+          <li role="presentation">
+            <% if current_user %>
+              <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+            <% else %>
+              <%= link_to 'Sign In', new_user_session_path %>
+            <% end %>
           </li>
         </ul>
       </nav>

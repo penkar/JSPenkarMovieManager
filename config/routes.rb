@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   # use_doorkeeper
   get '/home', to: 'home#home' 
-  
+  get '/movies/public', to: 'movies#public' 
+
   root :to => 'home#home'
   resources :users, only: [:index] do     
   end

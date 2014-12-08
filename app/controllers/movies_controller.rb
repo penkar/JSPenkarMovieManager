@@ -1,10 +1,9 @@
 class MoviesController < ApplicationController
 	def index
-		p params
-		@movies = Movie.all
-
+		@movies = User.find(current_user.id).movies
 	end
 
+	before_action :authenticate_user!, :except => [:public]
 	def create
 		@new_movie = Movie.new
 		@new_movie.title = params['movie']['title']
@@ -15,6 +14,11 @@ class MoviesController < ApplicationController
 		@new_movie.user_id = params['user_id']['rating']
 		@new_movie.save
  		redirect_to :action => "index"
+	end
+
+	def public
+		@movies = Movie.all
+		p @movies
 	end
 
 	def new
