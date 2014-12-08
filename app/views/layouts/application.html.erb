@@ -18,10 +18,10 @@
       <nav>
         <ul class="nav nav-pills pull-right">
           <li role="presentation" class="active">
-          	<%= link_to 'Collection', movies_path %>
+          	<%= link_to 'Collection', user_movies_path(:user_id) %>
           </li>
           <li role="presentation">
-          	<%= link_to 'Add', new_movie_path %>
+          	<%= link_to 'Add', new_user_movie_path(:user_id) %>
           </li>
           <li role="presentation">
           	<%= link_to 'Home', home_path %>

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get '/home', to: 'home#home' 
+  
   root :to => 'home#home'
-  resources :movies do 
+  resources :users, only: [:index] do     
+    resources :movies do 
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
