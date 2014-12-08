@@ -7,7 +7,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-ui-themes'
 gem 'jquery-ui-form'
 gem 'jquery-tablesorter'
-gem 'doorkeeper'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
