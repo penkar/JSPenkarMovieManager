@@ -5,14 +5,13 @@ class MoviesController < ApplicationController
 
 	before_action :authenticate_user!, :except => [:public]
 	def create
-		@new_movie = Movie.new
-		@new_movie.title = params['movie']['title']
-		@new_movie.format = params['movie']['format']
-		@new_movie.length = params['movie']['length']
-		@new_movie.release_year = params['movie']['release_year']
-		@new_movie.rating = params['movie']['rating']
-		@new_movie.user_id = params['user_id']['rating']
-		@new_movie.save
+		@user_new_movie = User.find(current_user.id).movies.new
+		@user_new_movie.title = params['movie']['title']
+		@user_new_movie.format = params['movie']['format']
+		@user_new_movie.length = params['movie']['length']
+		@user_new_movie.release_year = params['movie']['release_year']
+		@user_new_movie.rating = params['movie']['rating']
+		@user_new_movie.save
  		redirect_to :action => "index"
 	end
 
