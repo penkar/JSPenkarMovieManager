@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
 	def index
-		@movies = Movie.all
+		p params
+		@movies = User.find(params['user_id']).movies
+
 	end
 
 	def create
@@ -10,6 +12,7 @@ class MoviesController < ApplicationController
 		@new_movie.length = params['movie']['length']
 		@new_movie.release_year = params['movie']['release_year']
 		@new_movie.rating = params['movie']['rating']
+		@new_movie.user_id = params['user_id']['rating']
 		@new_movie.save
  		redirect_to :action => "index"
 	end
