@@ -12,6 +12,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <div id="main" class="m-scene">
+      <div class="scene_element scene_element--fadein">
+
+
 
   <div class="container hero-unit">
     <div class="header">
@@ -47,8 +51,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+        <%= yield %>
 
-    <%= yield %>
   </div>
+
+
+      </div>
+    </div>
+  <script src="/assets/jquery.smoothState.js"></script>
 </body>
 </html>
