@@ -1,31 +1,36 @@
-<table class="table table-hover table-condensed tablesorter"  id="keywords myTable">
-	<thead>
-	<tr>
-		<th class="tablehead">Title</th>
-		<th class="tablehead">Release Year</th>
-		<th class="tablehead">Length</th>
-		<th class="tablehead">Format</th>
-		<th class="tablehead">Rating</th>
-		<th class="tablehead">View</th>
-		<th class="tablehead">Edit</th>
-		<th class="tablehead">Delete</th>
-	</tr>
-	</thead>
-	<tbody>
-	<% @movies.each do |movie| %>
-	<tr>
-		<td><%= movie.title %></td>
-		<td><%= movie.release_year %></td>
-		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
-		<td><%= movie.format %></td>
-		<td><%= movie.rating %></td>
-		<td><%= button_to 'View Movie', movie_path(movie.id), :method => :get %></td>
-		<td><%= button_to 'Edit Movie', edit_movie_path(movie.id), :method => :get %></td>
-		<td><%= button_to "Delete", movie_path(movie.id), :method => :delete, :confirm => "Are you sure?" %></td>
-	</tr>
-	<% end %>
-	</tbody>
-</table>
+<div id="main" class="m-scene">
+	<div class="m-aside scene_element scene_element--fadein">
 
 
-<script src="/assets/movieindex.js"></script>
+		<table class="table table-hover table-condensed tablesorter"  id="keywords myTable">
+			<thead>
+			<tr>
+				<th class="tablehead">Title</th>
+				<th class="tablehead">Release Year</th>
+				<th class="tablehead">Length</th>
+				<th class="tablehead">Format</th>
+				<th class="tablehead">Rating</th>
+				<th class="tablehead">View</th>
+				<th class="tablehead">Edit</th>
+				<th class="tablehead">Delete</th>
+			</tr>
+			</thead>
+			<tbody>
+			<% @movies.each do |movie| %>
+			<tr>
+				<td><%= movie.title %></td>
+				<td><%= movie.release_year %></td>
+				<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
+				<td><%= movie.format %></td>
+				<td><%= movie.rating %></td>
+				<td><%= button_to 'View Movie', movie_path(movie.id), :method => :get %></td>
+				<td><%= button_to 'Edit Movie', edit_movie_path(movie.id), :method => :get %></td>
+				<td><%= button_to "Delete", movie_path(movie.id), :method => :delete, :confirm => "Are you sure?" %></td>
+			</tr>
+			<% end %>
+			</tbody>
+		</table>
+
+
+	</div>
+</div>
