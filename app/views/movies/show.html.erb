@@ -3,4 +3,28 @@
 <%= 'negative ' if @movie.rating < 3 %>
 <%= 'positive ' if @movie.rating > 3 %>
 <%= 'apathetic ' if @movie.rating == 3 %>feelings for the movie.
+<br>
+<p class='movie-info' id='Rated'></p>
+<p class='movie-info' id='Awards'></p>
+<p class='movie-info' id='Country'></p>
+<p class='movie-info' id='Metascore'></p>
+<p class='movie-info' id='Director'></p>
+<p class='movie-info' id='Plot'></p>
 
+
+<script type='text/javascript'>
+	var movieTitle = '<%= @movie.title %>'.replace(' ','+');
+	var movieYear = '<%= @movie.release_year %>';
+	var movieFact = '';
+	$(document).on('ready', function(){
+		$.getJSON('http://www.omdbapi.com/?t='+movieTitle+'&y='+movieYear+'&plot=short&r=json',
+			function(data){
+				movieFact = data;
+				for(var fact in movieFact){
+					append(fact, movieFact[fact]);
+				}
+			}
+		);
+	});
+	var append = function(id,info){$('#'+id).append(String(id)+': '+info)}
+</script>
