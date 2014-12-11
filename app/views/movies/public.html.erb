@@ -9,6 +9,8 @@
 				<th class="tablehead">Length</th>
 				<th class="tablehead">Format</th>
 				<th class="tablehead">Rating</th>
+				<th class="tablehead">View</th>
+
 			</tr>
 			</thead>
 			<tbody>
@@ -19,6 +21,8 @@
 				<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
 				<td><%= movie.format %></td>
 				<td><%= movie.rating %></td>
+				<td><%= button_to 'View Movie', movie_path(movie.id), :class => 'btn btn-success', :method => :get %></td>
+
 			</tr>
 			<% end %>
 			</tbody>
