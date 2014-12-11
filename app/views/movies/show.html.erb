@@ -1,30 +1,40 @@
+<p class='movie-info' id='contentAdvisoryRating'>Rating: </p>
+<p class='movie-info' id='artistName'>Director: </p>
+<p class='movie-info' id='longDescription'>Description: </p>
+<br>
 <%= @movie.title %> was created on <%= @movie.release_year %>, and runs for a length of <%= @movie.length / 60 %> hours and <%= @movie.length % 60 %> minutes. You currently own the <%= @movie.format %> version of this film and have 
 <%= 'strong ' if (@movie.rating == 5 || @movie.rating ==1 ) %>
 <%= 'negative ' if @movie.rating < 3 %>
 <%= 'positive ' if @movie.rating > 3 %>
 <%= 'apathetic ' if @movie.rating == 3 %>feelings for the movie.
-<br>
-<p class='movie-info' id='Rated'></p>
-<p class='movie-info' id='Awards'></p>
-<p class='movie-info' id='Country'></p>
-<p class='movie-info' id='Metascore'></p>
-<p class='movie-info' id='Director'></p>
-<p class='movie-info' id='Plot'></p>
 
 
 <script type='text/javascript'>
-	var movieTitle = '<%= @movie.title %>'.replace(' ','+');
+	var movieTitle = '<%= @movie.title %>'.replace(/\s/g,'+');
 	var movieYear = '<%= @movie.release_year %>';
-	var movieFact = '';
+	var movieData = '';
 	$(document).on('ready', function(){
-		$.getJSON('https://itunes.apple.com/search?term='+movieTitle+'&entity=movie',
-			function(data){
-				movieFact = data;
-				for(var fact in movieFact){
-					append(fact, movieFact[fact]);
+		urladdr = 'https://itunes.apple.com/search?term='+movieTitle+'&entity=movie',
+    $.ajax({
+      url: urladdr,
+      type: 'GET',
+      dataType: 'JSONP',
+      success: function(data, text) { 
+      	movieData = data.results[0]
+      	for(var fact in movieData){
+					append(fact, movieData[fact]);
 				}
-			}
-		);
-	});
-	var append = function(id,info){$('#'+id).append(String(id)+': '+info)}
+      },
+      error: function() { 
+      	console.log('failure');
+      },
+      beforeSend: setHeader
+    });
+	})
+	var append = function(id,info){$('#'+id).append(' '+info)}
+  function setHeader(xhr) {
+    xhr.setRequestHeader('securityCode', 'Foo');
+    xhr.setRequestHeader('passkey', 'Bar');
+  }
+
 </script>
