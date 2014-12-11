@@ -1,8 +1,8 @@
 <%= form_for @new_movie, url: {action: "create"}, html: {class: "form-horizontal text-center"} do |f| %>
 	<div class="control-group">
-		<label class="control-label">Title:</label>
+		<label class="control-label" for="title">Title:</label>
 		<div class="controls">
-			<%= f.text_field :title %>
+			<%= f.text_field :title, id: 'title', :placeholder => 'Gone With the Wind' %>
 		</div>
 	</div>
 
@@ -16,14 +16,14 @@
 	<div class="control-group">
 	<label class="control-label">Length:</label>
 		<div class="controls">
-			<%= f.text_field :length %>
+			<%= f.text_field :length, :placeholder => '180' %>
 		</div>
 	</div>
 
 	<div class="control-group">
 	<label class="control-label">Release Year:</label>
 		<div class="controls">
-			<%= f.text_field :release_year %>
+			<%= f.text_field :release_year, :placeholder => '2014' %>
 		</div>
 	</div>
 

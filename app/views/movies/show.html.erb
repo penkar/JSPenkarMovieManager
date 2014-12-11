@@ -11,7 +11,6 @@
 
 <script type='text/javascript'>
 	var movieTitle = '<%= @movie.title %>'.replace(/\s/g,'+');
-	var movieYear = '<%= @movie.release_year %>';
 	var movieData = '';
 	$(document).on('ready', function(){
 		urladdr = 'https://itunes.apple.com/search?term='+movieTitle+'&entity=movie',
@@ -26,7 +25,7 @@
 				}
       },
       error: function() { 
-      	console.log('failure');
+      	console.log('API Failure');
       },
       beforeSend: setHeader
     });
@@ -36,5 +35,4 @@
     xhr.setRequestHeader('securityCode', 'Foo');
     xhr.setRequestHeader('passkey', 'Bar');
   }
-
 </script>
