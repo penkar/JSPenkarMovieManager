@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 		@movies = User.find(current_user.id).movies
 	end
 
-	before_action :authenticate_user!, :except => [:public]
+	before_action :authenticate_user!, :except => [:public, :show]
 	def create
 		@user_new_movie = User.find(current_user.id).movies.new
 		@user_new_movie.title = params['movie']['title']
