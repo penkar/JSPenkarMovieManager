@@ -17,7 +17,6 @@ class MoviesController < ApplicationController
 
 	def public
 		@movies = Movie.all
-		p @movies
 	end
 
 	def new
@@ -44,8 +43,6 @@ class MoviesController < ApplicationController
 	end	
 
 	def destroy
-		p params
-		p 'hello'
 		Movie.find(params['id']).destroy
 		redirect_to :action => "index"
 	end	
