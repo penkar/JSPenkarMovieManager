@@ -1,4 +1,4 @@
-<%= form_for @new_movie, url: {action: "create"}, html: {class: "form-horizontal"} do |f| %>
+<%= form_for @new_movie, url: {action: "create"}, html: {class: "form-horizontal text-center"} do |f| %>
 	<div class="control-group">
 		<label class="control-label">Title:</label>
 		<div class="controls">
@@ -43,5 +43,5 @@
 		</div>
 	</div>
 
-  <%= f.submit "Create", class: "btn btn-primary" %>
+  <%= f.submit "Create", class: "btn btn-success" %>
 <% end %>
