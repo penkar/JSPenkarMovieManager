@@ -29,9 +29,6 @@
             <%= link_to 'Add', new_movie_path %>
           </li>
           <li role="presentation">
-            <%= link_to 'Splash', home_path %>
-          </li>
-          <li role="presentation">
             <% if current_user %>
               <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
             <% else %>
@@ -40,7 +37,7 @@
           </li>
         </ul>
       </nav>
-      <h1 class="text-muted">Jeffrey's Movie Manager</h1>
+      <h1 class="text-muted"><%= link_to "Jeffrey's Movie Manager", home_path %> </h1>
       <p>Movie Collections through Rails</p>
     </div>
 

@@ -17,7 +17,7 @@
 	var movieYear = '<%= @movie.release_year %>';
 	var movieFact = '';
 	$(document).on('ready', function(){
-		$.getJSON('http://www.omdbapi.com/?t='+movieTitle+'&y='+movieYear+'&plot=short&r=json',
+		$.getJSON('https://itunes.apple.com/search?term='+movieTitle+'&entity=movie',
 			function(data){
 				movieFact = data;
 				for(var fact in movieFact){
