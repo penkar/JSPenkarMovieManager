@@ -6,9 +6,9 @@
 		<th class="tablehead">Length</th>
 		<th class="tablehead">Format</th>
 		<th class="tablehead">Rating</th>
-		<th class="tablehead">View</th>
-		<th class="tablehead">Edit</th>
-		<th class="tablehead">Delete</th>
+		<th class="tablehead"></th>
+		<th class="tablehead"></th>
+		<th class="tablehead"></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -19,9 +19,9 @@
 		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
 		<td><%= movie.format %></td>
 		<td><%= movie.rating %></td>
-		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success', :method => :get %></td>
-		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info', :method => :get %></td>
-		<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger', :method => :delete, :confirm => "Are you sure?" %></td>
+		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
+		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm', :method => :get %></td>
+		<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %></td>
 	</tr>
 	<% end %>
 	</tbody>
