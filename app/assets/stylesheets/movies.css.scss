@@ -2,6 +2,10 @@
  * CSS Page Transitions
  * Don't forget to add vendor prefixes!
  */
+.info {
+  margin-bottom: 5px;
+}
+
 .m-scene {
   .scene_element {
     animation-duration: 5s;
