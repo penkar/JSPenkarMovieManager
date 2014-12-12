@@ -1,7 +1,7 @@
 <div class='row'><strong>
 	<div class="col-xs-4 col-md-4">Title</div>
 	<div class="col-xs-2 col-md-2">Release Year</div>
-	<div class="col-xs-2 col-md-2">Lengdiv</div>
+	<div class="col-xs-2 col-md-2">Length</div>
 	<div class="col-xs-1 col-md-1">Format</div>
 	<div class="col-xs-1 col-md-1">Rating</div>
 	<div class="col-xs-2 col-md-2"></div>
@@ -15,9 +15,9 @@
 <div class='row'>
 	<div class='col-xs-4 col-md-4 info'><%= movie.title %></div>
 	<div class='col-xs-2 col-md-2 info'><%= movie.release_year %></div>
-	<div class='col-xs-3 col-md-3 info'><%= movie.length/60 %> hr <%= movie.length%60 %> min</div>
+	<div class='col-xs-2 col-md-2 info'><%= movie.length/60 %> hr <%= movie.length%60 %> min</div>
 	<div class='col-xs-1 col-md-1 info'><%= movie.format %></div>
 	<div class='col-xs-1 col-md-1 info'><%= movie.rating %></div>
-	<div class='col-xs-1 col-md-1 info'><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-xs', :method => :get %></div>
+	<div class='col-xs-2 col-md-2 info'><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-xs', :method => :get %></div>
 </div>
 <% end %>
