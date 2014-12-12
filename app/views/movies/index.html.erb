@@ -1,52 +1,28 @@
-<div class='row'><strong>
-	<div class="col-xs-3 col-md-3">Title</div>
-	<div class="col-xs-2 col-md-2">Release Year</div>
-	<div class="col-xs-2 col-md-2">Length</div>
-	<div class="col-xs-1 col-md-1">Format</div>
-	<div class="col-xs-1 col-md-1">Rating</div>
-	<div class="col-xs-1 col-md-1"></div>
-	<div class="col-xs-1 col-md-1"></div>
-	<div class="col-xs-1 col-md-1"></div>
-</strong></div>
-
-<% @movies.each do |movie| %>
-<div class='row'>
-	<div class='col-xs-3 col-md-3 info'><%= movie.title %></div>
-	<div class='col-xs-2 col-md-2 info'><%= movie.release_year %></div>
-	<div class='col-xs-2 col-md-2 info'><%= movie.length/60 %> hr <%= movie.length%60 %> min</div>
-	<div class='col-xs-1 col-md-1 info'><%= movie.format %></div>
-	<div class='col-xs-1 col-md-1 info'><%= movie.rating %></div>
-	<div class='col-xs-1 col-md-1 info'><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-xs', :method => :get %></div>
-	<div class='col-xs-1 col-md-1 info'><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-xs', :method => :get %></div>
-	<div class='col-xs-1 col-md-1 info'><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-xs', :method => :delete, :confirm => "Are you sure?" %></div>
-</div>
-<% end %>
-
-		<table class="table table-hover table-condensed tablesorter"  id="keywords myTable">
-			<thead>
-			<tr>
-				<th class="tablehead">Title</th>
-				<th class="tablehead">Release Year</th>
-				<th class="tablehead">Length</th>
-				<th class="tablehead">Format</th>
-				<th class="tablehead">Rating</th>
-				<th class="tablehead">View</th>
-				<th class="tablehead">Edit</th>
-				<th class="tablehead">Delete</th>
-			</tr>
-			</thead>
-			<tbody>
-			<% @movies.each do |movie| %>
-			<tr>
-				<td class="lead"><%= movie.title %></td>
-				<td><%= movie.release_year %></td>
-				<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
-				<td><%= movie.format %></td>
-				<td><%= movie.rating %></td>
-				
-			</tr>
-			<% end %>
-			</tbody>
-		</table>
-
-
+<table class="table table-hover table-condensed tablesorter"  id="keywords myTable">
+	<thead>
+	<tr>
+		<th class="tablehead">Title</th>
+		<th class="tablehead">Release Year</th>
+		<th class="tablehead">Length</th>
+		<th class="tablehead">Format</th>
+		<th class="tablehead">Rating</th>
+		<th class="tablehead">View</th>
+		<th class="tablehead">Edit</th>
+		<th class="tablehead">Delete</th>
+	</tr>
+	</thead>
+	<tbody>
+	<% @movies.each do |movie| %>
+	<tr>
+		<td class="lead"><%= movie.title %></td>
+		<td><%= movie.release_year %></td>
+		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
+		<td><%= movie.format %></td>
+		<td><%= movie.rating %></td>
+		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success', :method => :get %></td>
+		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info', :method => :get %></td>
+		<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger', :method => :delete, :confirm => "Are you sure?" %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
