@@ -16,7 +16,9 @@ class MoviesController < ApplicationController
 	end
 
 	def public
-		@movies = Movie.all
+		p current_user.id
+		@movies = Movie.where(user_id:current_user.id)
+		@movies2 = Movie.where.not(user_id:current_user.id)
 	end
 
 	def new
