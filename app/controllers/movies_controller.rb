@@ -17,8 +17,13 @@ class MoviesController < ApplicationController
 	end
 
 	def public
-		@movies = Movie.where(user_id:current_user.id)
-		@movies2 = Movie.where.not(user_id:current_user.id)
+		if current_user
+			@movies = Movie.where(user_id:current_user.id)
+			@movies2 = Movie.where.not(user_id:current_user.id)
+		else 
+			@movies = Movie.all
+			@movies2 = []
+		end
 	end
 
 	def new
