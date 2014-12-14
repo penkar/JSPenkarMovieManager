@@ -21,8 +21,8 @@ class MoviesController < ApplicationController
 			@movies = Movie.where(user_id:current_user.id)
 			@movies2 = Movie.where.not(user_id:current_user.id)
 		else 
-			@movies = Movie.all
 			@movies2 = []
+			@movies= Movie.all
 		end
 	end
 
