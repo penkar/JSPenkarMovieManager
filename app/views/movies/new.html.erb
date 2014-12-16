@@ -1,7 +1,7 @@
 <% if flash[:error] %>	
 	<% flash[:error].each do |error, msg| %>
 		<p class='notice text-center'>
-			<%= error.to_s.capitalize.gsub('_',' ') + ' ' + msg.first + '.' %> 
+			<%= error.to_s.capitalize.gsub('_',' ') + ' entered ' + msg.first + '.' %> 
 		</p>
 	<% end %>
 <% end %>
