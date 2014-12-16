@@ -54,11 +54,13 @@ class MoviesController < ApplicationController
 		@movie.release_year = params['movie']['release_year']
 		@movie.rating = params['movie']['rating']
 		@movie.save
- 		redirect_to :action => "index"
+		flash[:notice] = "Movie successfully updated."
+		redirect_to :action => "index"
 	end	
 
 	def destroy
 		Movie.find(params['id']).destroy
+		flash[:notice] = "Movie successfully removed."		
 		redirect_to :action => "index"
 	end	
 end
