@@ -16,6 +16,10 @@
 /*
  *= require jquery-tablesorter/addons/pager/jquery.tablesorter.pager
  */
+.notice {
+  color:red;
+  margin-bottom: 0px;
+}
 
 .animated {
   -webkit-animation-duration: 2s;

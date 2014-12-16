@@ -6,14 +6,20 @@ class MoviesController < ApplicationController
 	end
 
 	def create
-		@user_new_movie = User.find(current_user.id).movies.new
-		@user_new_movie.title = params['movie']['title']
-		@user_new_movie.format = params['movie']['format']
-		@user_new_movie.length = params['movie']['length']
-		@user_new_movie.release_year = params['movie']['release_year']
-		@user_new_movie.rating = params['movie']['rating']
-		@user_new_movie.save
- 		redirect_to :action => "index"
+		@new_movie = User.find(current_user.id).movies.new
+		@new_movie.title = params['movie']['title']
+		@new_movie.format = params['movie']['format']
+		@new_movie.length = params['movie']['length']
+		@new_movie.release_year = params['movie']['release_year']
+		@new_movie.rating = params['movie']['rating']
+		if @new_movie.valid?
+			@new_movie.save
+			flash[:notice] = "Movie successfully created."
+			redirect_to :action => "index"
+		else
+			flash[:error] = @new_movie.errors.messages
+			render :new
+		end
 	end
 
 	def public
