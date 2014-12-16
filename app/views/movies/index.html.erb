@@ -18,7 +18,7 @@
 		<td><%= movie.title %></td>
 		<td><%= movie.release_year %></td>
 		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
-		<td><%= movie.format %></td>
+		<td class='hidden-phone'><%= movie.format %></td>
 		<td><%= movie.rating %></td>
 		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm hidden-phone', :method => :get %></td>
 		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm hidden-phone', :method => :get %></td>
@@ -26,6 +26,7 @@
 	</tr>
 
 	<tr class="hidden-desktop hidden-tablet visible-phone">
+		<td><%= movie.format %></td>
 		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
 		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm', :method => :get %></td>
 		<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %></td>
@@ -37,7 +38,7 @@
 		<td><%= movie.title %></td>
 		<td><%= movie.release_year %></td>
 		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
-		<td><%= movie.format %></td>
+		<td class='hidden-phone'><%= movie.format %></td>
 		<td><%= movie.rating %></td>
 		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm hidden-phone', :method => :get %></td>
 		<td><input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Edit"></td>
@@ -45,9 +46,10 @@
 	</tr>
 
 	<tr class="hidden-desktop hidden-tablet visible-phone">
+		<td><%= movie.format %></td>
 		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
 		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm', :method => :get %></td>
-		<td class=''><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %></td>
+		<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %></td>
 	</tr>
 
 	<% end %>	
