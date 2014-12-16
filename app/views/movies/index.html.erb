@@ -20,6 +20,12 @@
 		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
 		<td><%= movie.format %></td>
 		<td><%= movie.rating %></td>
+		<td class='hidden-phone'><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
+		<td class='hidden-phone'><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm', :method => :get %></td>
+		<td class='hidden-phone'><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %></td>
+	</tr>
+
+	<tr class="hidden-desktop hidden-tablet visible-phone">
 		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
 		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm', :method => :get %></td>
 		<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %></td>
@@ -33,10 +39,17 @@
 		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
 		<td><%= movie.format %></td>
 		<td><%= movie.rating %></td>
-		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
-		<td><input class='btn btn-info btn-sm disabled' type="submit" value="Edit"></td>
-		<td><input class='btn btn-danger btn-sm disabled' type="submit" value="Delete"></td>
+		<td class='hidden-phone'><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
+		<td class='hidden-phone'><input class='btn btn-info btn-sm disabled' type="submit" value="Edit"></td>
+		<td class='hidden-phone'><input class='btn btn-danger btn-sm disabled' type="submit" value="Delete"></td>
 	</tr>
+
+	<tr class="hidden-desktop hidden-tablet visible-phone">
+		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
+		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm', :method => :get %></td>
+		<td class=''><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %></td>
+	</tr>
+
 	<% end %>	
 	</tbody>
 </table>
