@@ -1,5 +1,5 @@
 <p class='notice'><%= flash[:notice] %></p>
-
+<p>INDEX.HTML</p>
 <table class="table table-hover table-condensed tablesorter"  id="keywords myTable">
 	<thead>
 	<tr>
@@ -14,9 +14,10 @@
 	</tr>
 	</thead>
 	<tbody>
+	
 	<% @movies.each do |movie| %>
 	<tr>
-		<td class="lead"><%= movie.title %></td>
+		<td><%= movie.title %></td>
 		<td><%= movie.release_year %></td>
 		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
 		<td><%= movie.format %></td>
@@ -26,5 +27,18 @@
 		<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %></td>
 	</tr>
 	<% end %>
+
+	<% @movies2.each do |movie| %>
+	<tr>
+		<td><%= movie.title %></td>
+		<td><%= movie.release_year %></td>
+		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
+		<td><%= movie.format %></td>
+		<td><%= movie.rating %></td>
+		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %></td>
+		<td><input class='btn btn-info btn-sm disabled' type="submit" value="Edit"></td>
+		<td><input class='btn btn-danger btn-sm disabled' type="submit" value="Delete"></td>
+	</tr>
+	<% end %>	
 	</tbody>
 </table>

@@ -3,6 +3,18 @@ class MoviesController < ApplicationController
 	
 	def index
 		@movies = User.find(current_user.id).movies
+		@movies2 = []
+	end
+
+	def public
+		if current_user
+			@movies = Movie.where(user_id:current_user.id)
+			@movies2 = Movie.where.not(user_id:current_user.id)
+		else 
+			@movies2 = Movie.all
+			@movies= []
+		end
+		render :index
 	end
 
 	def create
@@ -19,16 +31,6 @@ class MoviesController < ApplicationController
 		else
 			flash[:error] = @new_movie.errors.messages
 			render :new
-		end
-	end
-
-	def public
-		if current_user
-			@movies = Movie.where(user_id:current_user.id)
-			@movies2 = Movie.where.not(user_id:current_user.id)
-		else 
-			@movies2 = []
-			@movies= Movie.all
 		end
 	end
 
