@@ -2,10 +2,10 @@
 	<thead>
 	<tr>
 		<th class="tablehead">Title</th>
-		<th class="tablehead">Release Year</th>
-		<th class="tablehead">Length</th>
+		<th class="tablehead hidden-phone">Release Year</th>
+		<th class="tablehead hidden-phone">Length</th>
 		<th class="tablehead hidden-phone">Format</th>
-		<th class="tablehead">Rating</th>
+		<th class="tablehead hidden-phone">Rating</th>
 		<th class="tablehead hidden-phone"></th>
 		<th class="tablehead hidden-phone"></th>
 		<th class="tablehead hidden-phone"></th>
@@ -16,13 +16,19 @@
 	<% @movies.each do |movie| %>
 	<tr>
 		<td><%= movie.title %></td>
-		<td><%= movie.release_year %></td>
-		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
+		<td class='hidden-phone'><%= movie.release_year %></td>
+		<td class='hidden-phone'><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
 		<td class='hidden-phone'><%= movie.format %></td>
-		<td><%= movie.rating %></td>
+		<td class='hidden-phone'><%= movie.rating %></td>
 		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm hidden-phone', :method => :get %></td>
 		<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm hidden-phone', :method => :get %></td>
 		<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm hidden-phone', :method => :delete, :confirm => "Are you sure?" %></td>
+	</tr>
+
+	<tr class="hidden-desktop hidden-tablet visible-phone">
+		<td><%= movie.release_year %></td>
+		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
+		<td><%= movie.rating %></td>
 	</tr>
 
 	<tr class="hidden-desktop hidden-tablet visible-phone">
@@ -36,13 +42,19 @@
 	<% @movies2.each do |movie| %>
 	<tr>
 		<td><%= movie.title %></td>
-		<td><%= movie.release_year %></td>
-		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
+		<td class='hidden-phone'><%= movie.release_year %></td>
+		<td class='hidden-phone'><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
 		<td class='hidden-phone'><%= movie.format %></td>
-		<td><%= movie.rating %></td>
+		<td class='hidden-phone'><%= movie.rating %></td>
 		<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm hidden-phone', :method => :get %></td>
 		<td><input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Edit"></td>
 		<td><input class='btn btn-danger btn-sm disabled hidden-phone' type="submit" value="Delete"></td>
+	</tr>
+
+	<tr class="hidden-desktop hidden-tablet visible-phone">
+		<td><%= movie.release_year %></td>
+		<td><%= movie.length/60 %> hr <%= movie.length%60 %> min</td>
+		<td><%= movie.rating %></td>
 	</tr>
 
 	<tr class="hidden-desktop hidden-tablet visible-phone">
