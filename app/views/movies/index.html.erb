@@ -60,7 +60,7 @@
 				<% if movie.user_id == @id %>
 				<%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm hidden-phone', :method => :delete, :confirm => "Are you sure?" %>
 				<% else %>
-					<input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Delete">
+					<input class='btn btn-danger btn-sm disabled hidden-phone' type="submit" value="Delete">
 				<% end %>
 			</td>
 		</tr>
