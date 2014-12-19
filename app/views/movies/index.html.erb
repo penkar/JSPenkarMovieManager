@@ -29,9 +29,9 @@
 						<%= movie.format %>
 					<br>
 						<% if movie.user_id == @id %>
-							<%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm hidden-phone', :method => :get %>
+							<%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm', :method => :get %>
 						<% else %>
-							<input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Edit">
+							<input class='btn btn-info btn-sm disabled' type="submit" value="Edit">
 						<% end %>
 				</span>
 			</td>
@@ -40,9 +40,9 @@
 					<br>
 					<br>
 					<% if movie.user_id == @id %>
-						<%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm hidden-phone', :method => :delete, :confirm => "Are you sure?" %>
+						<%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %>
 					<% else %>
-						<input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Delete">
+						<input class='btn btn-danger btn-sm disabled' type="submit" value="Delete">
 					<% end %>
 				</span>
 			</td>
