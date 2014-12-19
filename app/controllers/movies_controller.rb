@@ -3,19 +3,17 @@ class MoviesController < ApplicationController
 	
 	def index
 		@id = current_user.id
-		@movies = User.find(current_user.id).movies
+		@movies = Movie.where(user_id:current_user.id).paginate(page: params[:page], per_page: 5)
 	end
 
 	def public
 		if current_user
 			@id = current_user.id
-			@movies = Movie.order(:id)#.where(user_id:current_user.id)
+			@movies = Movie.order(:id).paginate(page: params[:page], per_page: 5)
 		else 
 			@id = 0
-			@movies = Movie.order(:id)
+			@movies = Movie.order(:id).paginate(page: params[:page], per_page: 5)
 		end
-		p @movies
-		p @id
 		render :index
 	end
 
