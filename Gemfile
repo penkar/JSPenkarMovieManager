@@ -10,6 +10,8 @@ gem 'jquery-tablesorter'
 gem 'devise'
 gem 'turbolinks_transitions'
 
+gem 'will_paginate', '~> 3.0.6' #Paginatin Gem
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
