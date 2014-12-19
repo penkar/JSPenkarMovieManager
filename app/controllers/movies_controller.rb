@@ -2,18 +2,24 @@ class MoviesController < ApplicationController
 	before_action :authenticate_user!, :except => [:public, :show]
 	
 	def index
+		@id = current_user.id
 		@movies = User.find(current_user.id).movies
-		@movies2 = []
+		# @movies2 = []
+		p @movies
+		p @id
 	end
 
 	def public
+		@id = current_user.id || ''
 		if current_user
-			@movies = Movie.where(user_id:current_user.id)
-			@movies2 = Movie.where.not(user_id:current_user.id)
+			@movies = Movie.order(:id)#.where(user_id:current_user.id)
+			# @movies2 = Movie.order(:id).where.not(user_id:current_user.id)
 		else 
-			@movies2 = Movie.all
-			@movies= []
+			@movies2 = Movie.order(:id)
+			# @movies= []
 		end
+		p @movies
+		p @id
 		render :index
 	end
 

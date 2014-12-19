@@ -28,57 +28,43 @@
 					<br>
 						<%= movie.format %>
 					<br>
-						<%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm', :method => :get %>
+						<% if movie.user_id == @id %>
+							<%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm hidden-phone', :method => :get %>
+						<% else %>
+							<input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Edit">
+						<% end %>
 				</span>
 			</td>
 			<td><%= movie.length/60 %> hr <%= movie.length%60 %> min
 				<span class="hidden-desktop hidden-tablet visible-phone">
 					<br>
 					<br>
-						<%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm', :method => :delete, :confirm => "Are you sure?" %>
+					<% if movie.user_id == @id %>
+						<%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm hidden-phone', :method => :delete, :confirm => "Are you sure?" %>
+					<% else %>
+						<input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Delete">
+					<% end %>
 				</span>
 			</td>
 			<td class='hidden-phone'><%= movie.format %></td>
 			<td class='hidden-phone'><%= movie.rating %></td>
 			<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm hidden-phone', :method => :get %></td>
-			<td><%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm hidden-phone', :method => :get %></td>
-			<td><%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm hidden-phone', :method => :delete, :confirm => "Are you sure?" %></td>
+			<td>
+				<% if movie.user_id == @id %>
+					<%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm hidden-phone', :method => :get %>
+				<% else %>
+					<input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Edit">
+				<% end %>
+			</td>
+			<td>
+				<% if movie.user_id == @id %>
+				<%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm hidden-phone', :method => :delete, :confirm => "Are you sure?" %>
+				<% else %>
+					<input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Delete">
+				<% end %>
+			</td>
 		</tr>
 
 	<% end %>
-
-
-	<% @movies2.each do |movie| %>
-		<tr>
-			<td><%= movie.title %>
-				<span class="hidden-desktop hidden-tablet visible-phone">
-					<br>
-						<%= movie.rating %>
-					<br>
-						<%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm', :method => :get %>
-				</span>
-			</td>
-			<td><%= movie.release_year %>
-				<span class="hidden-desktop hidden-tablet visible-phone">
-					<br>
-						<%= movie.format %>
-					<br>
-						<%= button_to 'Edit', edit_movie_path(movie.id), :class => 'btn btn-info btn-sm disabled', :method => :get %>
-				</span>
-			</td>
-			<td><%= movie.length/60 %> hr <%= movie.length%60 %> min
-				<span class="hidden-desktop hidden-tablet visible-phone">
-					<br>
-					<br>
-						<%= button_to "Delete", movie_path(movie.id), :class => 'btn btn-danger btn-sm disabled', :method => :delete, :confirm => "Are you sure?" %>
-				</span>
-			</td>
-			<td class='hidden-phone'><%= movie.format %></td>
-			<td class='hidden-phone'><%= movie.rating %></td>
-			<td><%= button_to 'View', movie_path(movie.id), :class => 'btn btn-success btn-sm hidden-phone', :method => :get %></td>
-			<td><input class='btn btn-info btn-sm disabled hidden-phone' type="submit" value="Edit"></td>
-			<td><input class='btn btn-danger btn-sm disabled hidden-phone' type="submit" value="Delete"></td>
-		</tr>
-	<% end %>	
 	</tbody>
 </table>
